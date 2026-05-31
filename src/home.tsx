@@ -1,5 +1,5 @@
 // Home.tsx
-import { useAuth } from './context/AuthContext';
+import { useAuth } from './context/useAuth';
 
 function Home() {
   const { user, login, logout } = useAuth(); //  Works perfectly now!
