@@ -16,33 +16,76 @@ const Login = () => {
     if (!username.trim()) return;
 
     login(username, role);
-
     navigate('/dashboard', { replace: true });
   };
 
+
+  const inputStyle: React.CSSProperties = {
+    display: "block",
+    width: "100%",
+    maxWidth: "320px",
+    padding: "12px 14px",
+    margin: "12px 0",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    fontSize: "14px",
+    outline: "none",
+  };
+
+  const buttonStyle: React.CSSProperties = {
+    width: "100%",
+    maxWidth: "320px",
+    padding: "12px 14px",
+    marginTop: "16px",
+    backgroundColor: "#2563eb",
+    color: "#fff",
+    border: "none",
+    borderRadius: "8px",
+    fontSize: "15px",
+    cursor: "pointer",
+  };
+
+  const formStyle: React.CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  };
+
   return (
-    <div style={{ maxWidth: 600, height: '40%', margin: '4rem auto', padding: '4rem', border: '1px solid #ccc', borderRadius: '2rem', textAlign: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}> 
+    <div
+      style={{
+        maxWidth: 600,
+        margin: '4rem auto',
+        padding: '4rem',
+        border: '1px solid #ccc',
+        borderRadius: '2rem',
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
       <h2>Login</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={formStyle}>
         <input
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          style={{ display: 'block', width: '8rem', marginBottom: '4rem', padding: '1.2rem', marginTop: '1rem' }}
+          style={inputStyle}
         />
 
         <select
           value={role}
           onChange={(e) => setRole(e.target.value as Role)}
-          style={{ display: 'block', width: '11rem', marginBottom: '4rem', padding: '1.2rem', marginTop: '1rem' }}
+          style={inputStyle}
         >
           <option value="Admin">Admin</option>
           <option value="Editor">Editor</option>
           <option value="Viewer">Viewer</option>
         </select>
 
-        <button type="submit" style={{ width: '11rem', marginBottom: '3rem', padding: '1.2rem', marginTop: '1rem' }}>
+        <button type="submit" style={buttonStyle}>
           Login
         </button>
       </form>
